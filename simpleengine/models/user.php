@@ -62,7 +62,7 @@ class User implements DbModelInterface
     {
 
         /*session_start();*/
-        $username[0] = 'Гость';
+        $username[0] = 'Log In';
         $username[1] = 0;
 
         if (isset($_POST['email'])) {

@@ -22,8 +22,20 @@ class Product implements DbModelInterface
      */
 
     private $allProducts;
-    private $Deleted;
+    private $deleted;
     private $status;
+    private $categories;
+
+    /**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        $app = Application::instance();
+        $sql = "SELECT * FROM categories";
+        $this->categories = $app->db()->getArrayBySqlQuery("$sql");
+        return $this->categories;
+    }
 
     /**
      * @return mixed
@@ -45,13 +57,13 @@ class Product implements DbModelInterface
 
             $sql = "SELECT * FROM products WHERE deleted is NOT NULL";
 
-            $this->Deleted = $app->db()->getArrayBySqlQuery("$sql");
+            $this->deleted = $app->db()->getArrayBySqlQuery("$sql");
 
 
         }
 
 
-        return $this->Deleted;
+        return $this->deleted;
     }
 
     /**

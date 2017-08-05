@@ -7,10 +7,8 @@
  */
 
 namespace simpleengine\controllers;
-
-
-
-
+use simpleengine\models\Product;
+use simpleengine\models\User;
 
 class DefaultController extends AbstractController
 {
@@ -18,20 +16,20 @@ class DefaultController extends AbstractController
     {
 
 
-        $model = new \simpleengine\models\DefaultModel();
-        $user = new \simpleengine\models\User();
+
+        $user = new User();
+        $product = new Product();
 
         echo $this->render("index", [
 
 
             "isAuth" => $user->userIsAuth(),
             "user" => $user->getFirstname(),
-            "hello" => "geekbrains",
-            "info" => $model->testMethod(),
             "username" => $user->userIsAuth(),
-            "menuList" => $model->menu(),
+           /* "menuList" => $model->menu(),*/
             "usersItems" => $user->getUsersBasket(),
             "isAdmin" => $user->getRoles(),
+            "categories" => $product->getCategories(),
 
         ]);
        

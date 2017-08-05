@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <div class="col-xs-4 cart">
-                    <button class="account">My Account &nbsp; <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    <button class="account">{{username[0]}} &nbsp; <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </button>
                     <a href=""><img class="cartimg" src="img/cart.png" alt=""></a>
                 </div>
@@ -126,13 +126,24 @@
             <nav>
                 <div class="upperMenu">
                     <ul class="col-md-12  col-lg-8 col-lg-offset-2 col-sm-12  col-xs-12 ">
-                        <li class=""><a href="">home</a></li>
-                        <li class=""><a href="">man</a></li>
+                        <li class=""><a href="/">home</a></li>
+                        <!--<li class=""><a href="">man</a></li>
                         <li class=""><a href="">women</a></li>
                         <li class=""><a href="">kids</a></li>
                         <li class=""><a href="">accessories</a></li>
                         <li class=""><a href="">featured</a></li>
-                        <li class=""><a href="">hot deals</a></li>
+                        <li class=""><a href="">hot deals</a></li>-->
+
+
+                        {% for value in categories %}
+
+                        {% if value["id_parent_category"] == 1 %}
+                        <li class=""> <a href=""> {{value["category_name"]}} </a> </li>
+                        {% endif %}
+
+                        {% endfor %}
+
+
                     </ul>
                 </div>
             </nav>
