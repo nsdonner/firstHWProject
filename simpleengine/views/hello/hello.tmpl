@@ -1,0 +1,39 @@
+
+{% if isAuth[1] == 0 %}
+
+Нужно авторизоваться. <a href="/user/login">Войти</a>
+
+
+{% else %}
+
+<p>Ваша корзина, {{user}}</p>
+<ul>
+
+    {% for value in usersItems%}
+    <li> {{ value["product_name"]}}: {{value["product_price"]}}  руб.
+
+        <form method="post" action="/hello/remove/">
+
+            <button name="remove" value="{{value['id_basket']}}">Удалить</button>
+
+        </form>
+    </li>
+
+    {%endfor%}
+</ul>
+
+<form method="post" action="/order/order/">
+    <button name="order" value="order">Добавить в заказ</button>
+</form>
+
+<a href="/order">Мои заказы</a>
+<a href="/">На главную</a>
+<a href="/product">Назад</a>
+
+
+
+
+
+{% endif %}
+
+

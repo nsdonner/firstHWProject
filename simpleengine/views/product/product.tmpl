@@ -1,0 +1,52 @@
+
+{% if isAuth[1] == 1 %}
+<h3>Корзина</h3>
+<ul>
+
+    {% for value in usersItems%}
+    <li> {{ value["product_name"]}}: {{value["product_price"]}}  руб.
+
+        <form method="post" action="/hello/remove/">
+
+            <button name="remove" value="{{value['id_basket']}}">Удалить</button>
+
+        </form>
+    </li>
+
+
+    {%endfor%}
+</ul>
+<form method="post" action="/order/order/">
+    <button name="order" value="order">Добавить в заказ</button>
+</form>
+
+{% endif %}
+
+
+
+
+
+<h1>Карточка товара '{{product['header'][0]['product_name']}}'  из категории '{{product['header'][0]['category_name']}}'</h1>
+
+
+
+<ul>{% for key, value2 in product['list']  %}
+    <li>
+
+        Название: {{value2['product_name']}}, цена: {{value2['product_price']}}, артикул: {{value2['product_sku']}}
+
+        {% for valuePic in value2['Photo'] %}
+        <img src="{{valuePic}}" alt="{{valuePic}}">
+        {%endfor%}
+
+        <form method="post" action="/hello/add/">
+            <button name="add" value="{{value2['id']}}">Добавить</button>
+        </form>
+
+
+    </li>
+    {%endfor%}
+
+</ul>
+<a href="/product">Назад</a>
+<a href="/">На главную</a>

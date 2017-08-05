@@ -1,0 +1,133 @@
+{% if isAuth[1] == 1 %}
+
+
+
+{% if isAdmin %}
+
+{% if status %}
+<p>Статус операции: {{status}}</p>
+
+
+{%endif%}
+
+
+<p>Привет, {{firstName}} </p>
+
+
+
+<h2>Управление товарами</h2>
+
+
+
+
+
+<ul>
+{% for value in catalog%}
+
+    {% if (value['id_parent_product'] == NULL)  and ( value['deleted'] ==  NULL ) %}
+        <li> Группа товаров : {{value['product_name']}}, SKU: {{value['product_sku']}}
+            <form method="POST" action="/admin/rmgroup">
+                <button name="groupId" value="{{value['id']}}">Удалить всю группу</button>
+            </form>
+            <ul>
+                {% for subValue in catalog%}
+                    {% if (subValue['id_parent_product'] == value['id']) and ( subValue['deleted'] ==  NULL ) %}
+
+                        <li>  {{subValue['product_name']}}, SKU: {{subValue['product_sku']}}, Цена {{subValue['product_price']}}
+
+                            <form method="POST" action="/admin/rmproduct">
+                                <button name="productId" value="{{subValue['id']}}">Удалить</button>
+                            </form>
+
+                        </li>
+
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        </li>
+    {% endif %}
+
+{% endfor %}
+
+</ul>
+
+<h3>Удалённое</h3>
+
+<ul>
+
+    {% for value in deleted%}
+
+        <li> {{value['id']}}, {{value['product_name']}}, SKU: {{value['product_sku']}} , Цена: {{value['product_price']}}, Дата удаления: {{value['deleted']}} </li>
+
+    {% endfor %}
+
+
+</ul>
+
+
+
+
+<h3>Добавление товарных групп</h3>
+
+<h4>Группа</h4>
+<form method="post" action="/admin/add">
+
+    <input type="text" name="product_name" placeholder="Имя товара">
+    <input type="text" name="product_sku" placeholder="SKU like 100000">
+    <input type="number" name="product_price" placeholder="100">
+
+
+    <button name="addGroup" value="1">Добавить</button>
+</form>
+<h4>Товар группы</h4>
+<form method="post" action="/admin/add">
+
+    <input type="text" name="product_name" placeholder="Имя товара">
+
+    <select name="id_parent_product" id="">
+
+        {% for value in categories %}
+
+        <option value=" {{value['id']}}  "> {{value['product_name']}} </option>
+
+        {% endfor %}
+
+
+
+
+
+    </select>
+    
+    
+    
+    <input type="text" name="product_sku" placeholder="SKU like 100000000">
+    <input type="number" name="product_price" placeholder="100">
+    <input type="text" name="size" placeholder="Размер">
+    <input type="text" name="color" placeholder="Цвет">
+    <input type="text" name="photo" placeholder="Картинка">
+
+
+    <button name="addProduct" value="1">Добавить</button>
+</form>
+
+
+
+
+{% else %}
+
+<p>Привет, {{firstName}}, я слежу за тобой.</p>
+
+{% endif %}
+
+{% else %}
+
+<p>Нужно авторизоваться. <a href="/user/login">Войти</a></p>
+{% endif %}
+
+
+<a href="/">На главную</a>
+<a href="/admin/">Управление магазином</a>
+<a href="/user/bye">Выйти</a>
+
+

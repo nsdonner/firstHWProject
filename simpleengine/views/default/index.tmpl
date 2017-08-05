@@ -1,0 +1,41 @@
+{% if isAuth[1] == 1 %}
+<h3>Корзина</h3>
+<ul>
+
+    {% for value in usersItems%}
+    <li> {{ value["product_name"]}}: {{value["product_price"]}} руб.
+
+        <form method="post" action="/hello/remove/">
+
+            <button name="remove" value=" {{value['id_basket']}} ">Удалить</button>
+
+        </form>
+
+
+    </li>
+       {%endfor%}
+
+</ul>
+<form method="post" action="/order/order/">
+    <button name="order" value="order">Добавить в заказ</button>
+</form>
+
+{% endif %}
+
+
+<h1>Это наш новый сайт</h1>
+
+
+<h2>{{ info }}</h2>
+<p>Привет, {{username[0]}}</p>
+
+<ul>{% for key, value in menuList%}
+    <li><a href='{{value}}'>{{key}}</a></li>
+    {%endfor%}
+</ul>
+
+{% if isAdmin %}
+<a href="/admin">Управление магазином</a>
+{% endif %}
+
+
