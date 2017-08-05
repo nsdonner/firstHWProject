@@ -1,3 +1,4 @@
+<!--
 {% if isAuth[1] == 1 %}
 <h3>Корзина</h3>
 <ul>
@@ -39,3 +40,376 @@
 {% endif %}
 
 
+-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <script src="../../../js/script.js"></script>
+
+</head>
+<body>
+
+<div class="cont">
+
+    <header>
+        <div class="hBorder">
+            <div class="col-lg-offset-2 col-lg-8 col-md-12 col-sm-12 col-xs-12 head">
+                <div class="col-xs-3 logoCont">
+                    <img src="img/logo.png" class="logo" alt="">
+                    <img src="img/brandtext.png" class="brandText" alt="">
+                </div>
+
+                <div class="col-xs-5 logoSearch">
+                    <div class="input-group dropdown headSearch">
+                        <button class="input-group-addon btn btn-default dropdown-toggle headBrowseBt" type="button"
+                                id="dropdownMenu1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Browse <span class="caret"></span>
+
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li class="menuTitle">Women</li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Tops</a></li>
+                            <li><a href="#">Sweaters/Knits</a></li>
+                            <li><a href="#">Jackets/Coats</a></li>
+                            <li><a href="#">Blazers</a></li>
+                            <li><a href="#">Denim</a></li>
+                            <li><a href="#">Leggins/Pants</a></li>
+                            <li><a href="#">Skirts/Shorts</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li class="menuTitle">Men</li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Tees/Tank tops</a></li>
+                            <li><a href="#">Shirt/Polos</a></li>
+                            <li><a href="#">Sweeters</a></li>
+                            <li><a href="#">Sweatshirts/Hoodies</a></li>
+                            <li><a href="#">Blazers</a></li>
+                            <li><a href="#">Jackets/vests</a></li>
+                        </ul>
+                        <input type="text" class="input-group-addon headSearchInput" placeholder="Search for item...">
+                        <button class="input-group-addon headBrowseBtSearch"><i class="fa fa-search"
+                                                                                aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-4 cart">
+                    <button class="account">My Account &nbsp; <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </button>
+                    <a href=""><img class="cartimg" src="img/cart.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="promo">
+            <nav>
+                <div class="upperMenu">
+                    <ul class="col-md-12  col-lg-8 col-lg-offset-2 col-sm-12  col-xs-12 ">
+                        <li class=""><a href="">home</a></li>
+                        <li class=""><a href="">man</a></li>
+                        <li class=""><a href="">women</a></li>
+                        <li class=""><a href="">kids</a></li>
+                        <li class=""><a href="">accessories</a></li>
+                        <li class=""><a href="">featured</a></li>
+                        <li class=""><a href="">hot deals</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="promotext"></div>
+
+        </div>
+    </header>
+    <main>
+        <div class="spacer1"></div>
+        <div class="categories">
+            <div class="catLeft">
+                <div class="catMen">
+                    <div class="catText">
+                        <p class="catText1">hot deal</p>
+                        <p class="catText2">for men</p>
+                    </div>
+                </div>
+                <div class="catAccessories">
+                    <div class="catText">
+                        <p class="catText1">luxurious & trendy</p>
+                        <p class="catText2">accessories</p>
+                    </div>
+                </div>
+            </div>
+            <div class="catRight">
+                <div class="catWomen">
+                    <div class="catText">
+                        <p class="catText1">30% offer</p>
+                        <p class="catText2">women</p>
+                    </div>
+                </div>
+                <div class="catKids">
+                    <div class="catText">
+                        <p class="catText1">new arrivals</p>
+                        <p class="catText2">for kids</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="spacer2 clearfix">
+            <p class="sp2t1">Featured Items</p>
+            <p class="sp2t2">Shop for items based on what we featured in this week</p>
+
+        </div>
+        <div class="catalog clearfix">
+
+            <ul>
+                <li>
+                    <div class="item">
+                        <div class="itemImageBlock"><img src="img/g1.png" alt="">
+
+                        </div>
+                        <div class="itemTextBlock">
+                            <p class="catItemText">mango people t-shirt</p>
+                            <p class="catItemPrice">$52.00</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="itemImageBlock"><img src="img/g2.png" alt="">
+
+                        </div>
+
+                        <div class="itemTextBlock">
+                            <p class="catItemText">mango people t-shirt</p>
+                            <p class="catItemPrice">$52.00</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="itemImageBlock"><img src="img/g3.png" alt=""></div>
+                        <div class="itemTextBlock">
+                            <p class="catItemText">mango people t-shirt</p>
+                            <p class="catItemPrice">$52.00</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="itemImageBlock"><img src="img/g4.png" alt=""></div>
+                        <div class="itemTextBlock">
+                            <p class="catItemText">mango people t-shirt</p>
+                            <p class="catItemPrice">$52.00</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="itemImageBlock"><img src="img/g5.png" alt=""></div>
+                        <div class="itemTextBlock">
+                            <p class="catItemText">mango people t-shirt</p>
+                            <p class="catItemPrice">$52.00</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="itemImageBlock"><img src="img/g6.png" alt=""></div>
+                        <div class="itemTextBlock">
+                            <p class="catItemText">mango people t-shirt</p>
+                            <p class="catItemPrice">$52.00</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="itemImageBlock"><img src="img/g7.png" alt=""></div>
+                        <div class="itemTextBlock">
+                            <p class="catItemText">mango people t-shirt</p>
+                            <p class="catItemPrice">$52.00</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="itemImageBlock"><img src="img/g8.png" alt=""></div>
+                        <div class="itemTextBlock">
+                            <p class="catItemText">mango people t-shirt</p>
+                            <p class="catItemPrice">$52.00</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+        <div class="spacer3">
+
+            <button class="spacer3Button">Browse All Products &nbsp; <i class="fa fa-long-arrow-right"
+                                                                        aria-hidden="true"></i></button>
+
+        </div>
+    </main>
+    <aside>
+
+        <div class="promo2">
+            <div class="promo2Logo">
+                <div class="promo2LogoText">
+                    <p class="line1">30% <span class="red">offer</span></p>
+                    <p class="line2">for women</p>
+                </div>
+            </div>
+            <div class="promo2Text">
+                <div class="promo2TextPics">
+                    <img src="img/promo2car.png" class="p2TPpic1" alt="">
+                    <img src="img/promo2discount.png" class="p2TPpic2" alt="">
+                    <img src="img/promo2crown.png" class="p2TPpic3" alt="">
+                </div>
+                <div class="promo2TextContent">
+
+                    <div class="promo2TextBlock">
+                        <p class="promo2TextBlockTitle">Free delivery</p>
+                        <p class="promo2TextBlockText">Worldwide delivery on all. Authorit tively morph next-generation
+                            innov tion with extensive models.</p>
+                    </div>
+                    <div class="promo2TextBlock">
+                        <p class="promo2TextBlockTitle">Free delivery</p>
+                        <p class="promo2TextBlockText">Worldwide delivery on all. Authorit tively morph next-generation
+                            innov tion with extensive models.</p>
+                    </div>
+
+                    <div class="promo2TextBlock">
+                        <p class="promo2TextBlockTitle">Free delivery</p>
+                        <p class="promo2TextBlockText">Worldwide delivery on all. Authorit tively morph next-generation
+                            innov tion with extensive models.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="spacer4"></div>
+        <div class="subscribe">
+            <div class="col-lg-8 col-lg-offset-2 col-xs-12 col-sm-12">
+                <div class="subscribeLeft col-md-6 col-xs-6 col-sm-6">
+                    <img src="img/subscribeFace.png" alt="">
+                    <p>“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam
+                        condimentum mattis neque sed pretium”</p>
+
+                    <p class="sign"><span class="red">Bin Burhan</span><br>
+                        <span class="signLoc">Dhaka, Bd</span>
+                    </p>
+                </div>
+                <div class="subscribeRight col-md-6 col-xs-6 col-sm-6">
+                    <p class="subscribeRightText1">subscribe</p>
+                    <p class="subscribeRightText2">for our newletter and promotion</p>
+                    <input type="email" placeholder="Enter Your Email"><button name="subscribe">Subscribe</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="spacer5"></div>
+    </aside>
+    <footer>
+
+        <div class="footerMenu">
+
+            <div class="col-lg-8 col-lg-offset-2 col-xs-12 col-sm-12 col-md-12">
+                <div class="col-md-5 col-xs-5 col-sm-5 fBrand">
+                    <img src="img/logo.png" class="logo" alt="">
+                    <img src="img/brandtext.png" class="brandtext" alt="">
+                    <p>
+                        Objectively transition extensive data rather than cross functional solutions. Monotonectally
+                        syndicate
+                        multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array
+                        of
+                        processes and cross-unit partnerships.
+                    </p>
+                    <p>Efficiently plagiarize 24/365 action items and focused infomediaries.
+                        Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.</p>
+
+                </div>
+                <nav class="col-lg-5 col-lg-offset-2 col-md-6 col-xs-6 col-sm-6">
+
+
+
+
+                    <div class="col-md-4 col-xs-4 col-sm-4 fCompany">
+                        <ul>
+                            <li>company</li>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Shop</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">How it works</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+
+
+                    </div>
+                    <div class="col-md-4 col-xs-4 col-sm-4 fInformation">
+                        <ul>
+                            <li>information</li>
+                            <li><a href="">Terms & Condition</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">How to Buy</a></li>
+                            <li><a href="">How to Sell</a></li>
+                            <li><a href="">Promotion</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-xs-4 col-sm-4 fShop">
+                        <ul>
+                            <li>shop category</li>
+                            <li><a href="">Men</a></li>
+                            <li><a href="">Women</a></li>
+                            <li><a href="">Child</a></li>
+                            <li><a href="">Apparel</a></li>
+                            <li><a href="">Brows All</a></li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            <div class="col-lg-8 col-lg-offset-2 col-xs-12 col-sm-12 ">
+                <p class="col-md-3 col-xs-3 col-sm-3">© 2017 Brand All Rights Reserved.</p>
+                <ul class="col-md-4 col-md-offset-5 col-xs-4 col-xs-offset-5 col-sm-4 col-sm-offset-5">
+                    <li><i class="fa fa-google-plus" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-pinterest-p" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+
+
+</div>
+
+</body>
+</html>
