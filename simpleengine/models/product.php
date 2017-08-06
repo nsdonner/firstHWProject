@@ -282,9 +282,6 @@ class Product implements DbModelInterface
     {
         if ((int)$count > 0) {
             $this->catalogIndex($count);
-            echo '<pre>';
-            var_dump($this->catalog);
-            echo '</pre>';
         }
 
         if ((int)$id > 0) {
