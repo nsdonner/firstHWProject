@@ -76,6 +76,7 @@ class adminController extends AbstractController
             "categories" => $product->getCatalog(),
             "status" => $product->getStatus(),
             "catalog" => $product->getAllProducts(),
+            "idcat" => $product->getCategories(),
 
         ]);
 
@@ -97,6 +98,7 @@ class adminController extends AbstractController
             "catalog" => $product->getAllProducts(),
             "deleted" => $product->getDeleted(),
             "categories" => $product->getCatalog(),
+            "idcat" => $product->getCategories(),
 
 
         ]);
@@ -118,7 +120,7 @@ class adminController extends AbstractController
             "catalog" => $product->getAllProducts(),
             "deleted" => $product->getDeleted(),
             "categories" => $product->getCatalog(),
-
+            "idcat" => $product->getCategories(),
 
         ]);
 
@@ -141,7 +143,7 @@ class adminController extends AbstractController
             "catalog" => $product->getAllProducts(),
             "deleted" => $product->getDeleted(),
             "categories" => $product->getCatalog(),
-
+            "idcat" => $product->getCategories(),
 
         ]);
 

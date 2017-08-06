@@ -30,6 +30,7 @@ class DefaultController extends AbstractController
             "usersItems" => $user->getUsersBasket(),
             "isAdmin" => $user->getRoles(),
             "categories" => $product->getCategories(),
+            "catalog"=> $product->getCatalog(),
 
         ]);
        

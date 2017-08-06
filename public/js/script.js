@@ -3,8 +3,16 @@
  */
 
 
-window.onload = function () {
-    //ищем элемент по селектору
+
+$(document).ready(function(){
+    //при нажатию на любую кнопку, имеющую класс .btn
+    $(".btnLogin").click(function() {
+        //открыть модальное окно с id="myModal"
+        $("#myModal").modal('show');
+    });
+
+    $("#authError").modal('show');
+
     var catItems = document.getElementsByClassName('item');
     catItems = Array.prototype.slice.call(catItems);
 
@@ -31,5 +39,9 @@ window.onload = function () {
         }
     )
 
+});
 
-}
+
+
+
+

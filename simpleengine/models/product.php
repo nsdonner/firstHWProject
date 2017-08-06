@@ -34,6 +34,10 @@ class Product implements DbModelInterface
         $app = Application::instance();
         $sql = "SELECT * FROM categories";
         $this->categories = $app->db()->getArrayBySqlQuery("$sql");
+
+
+
+
         return $this->categories;
     }
 
@@ -130,6 +134,8 @@ class Product implements DbModelInterface
             $productName = $_POST['product_name'];
             $productSku = $_POST['product_sku'];
             $productPrice = $_POST['product_price'];
+            $productCatId = $_POST['idcat'];
+            $productPhoto = $_POST['photo'];
 
             if ((int)($user->getRoles()) == 1) {
 
@@ -149,6 +155,22 @@ class Product implements DbModelInterface
 
                     $result = $app->db()->getArrayBySqlQuery($sql, $sqlData);
                     $this->catalogIndex(); //пересчет групп товаров
+
+
+                    foreach ($this->catalog as $value) {
+
+                        if ($value['product_sku'] == $productSku){
+                            $newProductId = $value['id'];
+                            break;
+                        }
+                    }
+
+                    $sql = "INSERT INTO product_properties_values (id_product, id_property, property_value) VALUES (?,?,?)";
+                    $sqlData = [$newProductId,4,$productCatId];
+                    $app->db()->getArrayBySqlQuery($sql, $sqlData);
+                    $sqlData = [$newProductId,1,$productPhoto];
+                    $app->db()->getArrayBySqlQuery($sql, $sqlData);
+
 
                     if (isset($result['err'])) {
 
@@ -260,6 +282,9 @@ class Product implements DbModelInterface
     {
         if ((int)$count > 0) {
             $this->catalogIndex($count);
+            echo '<pre>';
+            var_dump($this->catalog);
+            echo '</pre>';
         }
 
         if ((int)$id > 0) {

@@ -76,7 +76,14 @@
     <input type="text" name="product_name" placeholder="Имя товара">
     <input type="text" name="product_sku" placeholder="SKU like 100000">
     <input type="number" name="product_price" placeholder="100">
-
+    <select name="idcat" >
+        {% for value in idcat %}
+        {% if value['id_parent_category'] > 0 %}
+        <option value=" {{value['id']}}  "> {{value['category_name']}} </option>
+        {% endif %}
+        {% endfor %}
+    </select>
+    <input type="text" name="photo" placeholder="Картинка">
 
     <button name="addGroup" value="1">Добавить</button>
 </form>
@@ -85,7 +92,7 @@
 
     <input type="text" name="product_name" placeholder="Имя товара">
 
-    <select name="id_parent_product" id="">
+    <select name="id_parent_product" >
 
         {% for value in categories %}
 
@@ -103,6 +110,14 @@
     
     <input type="text" name="product_sku" placeholder="SKU like 100000000">
     <input type="number" name="product_price" placeholder="100">
+
+   <!-- <select name="idcat" >
+        {% for value in idcat %}
+            {% if value['id_parent_category'] > 0 %}
+                <option value=" {{value['id']}}  "> {{value['category_name']}} </option>
+            {% endif %}
+        {% endfor %}
+    </select>-->
     <input type="text" name="size" placeholder="Размер">
     <input type="text" name="color" placeholder="Цвет">
     <input type="text" name="photo" placeholder="Картинка">

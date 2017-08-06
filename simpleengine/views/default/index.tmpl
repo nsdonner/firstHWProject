@@ -45,7 +45,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>lesson6</title>
+    <title>Курсовой проект №1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -70,6 +70,54 @@
 
 </head>
 <body>
+
+
+<!-- HTML-код модального окна-->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Заголовок модального окна -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Имя должен назвать своё ты</h4>
+            </div>
+            <!-- Основное содержимое модального окна -->
+            <div class="modal-body">
+                <form id="loginForm" method="post" action="/">
+                    <input name='email' type="email" placeholder="e-mail">
+                    <input name='pass' type="password" placeholder="password">
+                </form>
+            </div>
+            <!-- Футер модального окна -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                <button type="submit" form="loginForm" class="btn btn-primary">Войти</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if username['authError'] == '1' %}
+<div id="authError" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Заголовок модального окна -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Имя должен назвать своё ты</h4>
+            </div>
+            <!-- Основное содержимое модального окна -->
+            <div class="modal-body">
+                <p>Неверный e-mail или пароль.</p>
+            </div>
+            <!-- Футер модального окна -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 
 <div class="cont">
 
@@ -116,8 +164,30 @@
                     </div>
                 </div>
                 <div class="col-xs-4 cart">
-                    <button class="account">{{username[0]}} &nbsp; <i class="fa fa-caret-down" aria-hidden="true"></i>
-                    </button>
+                    <div class="dropdown loginBtnDiv">
+                        <button class="account {% if username[0] == 'Log In' %}
+
+                    btnLogin "
+                    {% else %}
+
+                                class="account dropdown-toggle"
+                                id="dropdownAccountMenuButton" type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"
+                    {% endif %} >
+                            {{username[0]}} &nbsp;
+
+                            <i class="fa fa-caret-down" aria-hidden="true">
+
+                            </i>
+                        </button>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownAccountMenuButton">
+                            <li><a class="dropdown-item" href="/hello">Кабинет</a></li>
+                            <li><a class="dropdown-item" href="/user/bye">Выйти</a></li>
+                        </ul>
+                    </div>
+
+
                     <a href=""><img class="cartimg" src="img/cart.png" alt=""></a>
                 </div>
             </div>
@@ -138,7 +208,7 @@
                         {% for value in categories %}
 
                         {% if value["id_parent_category"] == 1 %}
-                        <li class=""> <a href=""> {{value["category_name"]}} </a> </li>
+                        <li class=""><a href=""> {{value["category_name"]}} </a></li>
                         {% endif %}
 
                         {% endfor %}
@@ -193,83 +263,25 @@
         <div class="catalog clearfix">
 
             <ul>
+               {% set break = false %}
+               {% for value in catalog if not break %}
                 <li>
                     <div class="item">
-                        <div class="itemImageBlock"><img src="img/g1.png" alt="">
+                        <div class="itemImageBlock"><img src="img/{% if value['Photo'][0] == NULL%}g1.png{% else %}{{value['Photo'][0]}}{% endif %}" alt="">
 
                         </div>
                         <div class="itemTextBlock">
-                            <p class="catItemText">mango people t-shirt</p>
-                            <p class="catItemPrice">$52.00</p>
+                            <p class="catItemText">{{value['product_name']}}</p>
+                            <p class="catItemPrice">${{value['product_price']}}</p>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="item">
-                        <div class="itemImageBlock"><img src="img/g2.png" alt="">
+                {% if loop.index > 7 %}
+                    {% set break = true %}
+                {% endif %}
 
-                        </div>
+                {% endfor %}
 
-                        <div class="itemTextBlock">
-                            <p class="catItemText">mango people t-shirt</p>
-                            <p class="catItemPrice">$52.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <div class="itemImageBlock"><img src="img/g3.png" alt=""></div>
-                        <div class="itemTextBlock">
-                            <p class="catItemText">mango people t-shirt</p>
-                            <p class="catItemPrice">$52.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <div class="itemImageBlock"><img src="img/g4.png" alt=""></div>
-                        <div class="itemTextBlock">
-                            <p class="catItemText">mango people t-shirt</p>
-                            <p class="catItemPrice">$52.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <div class="itemImageBlock"><img src="img/g5.png" alt=""></div>
-                        <div class="itemTextBlock">
-                            <p class="catItemText">mango people t-shirt</p>
-                            <p class="catItemPrice">$52.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <div class="itemImageBlock"><img src="img/g6.png" alt=""></div>
-                        <div class="itemTextBlock">
-                            <p class="catItemText">mango people t-shirt</p>
-                            <p class="catItemPrice">$52.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <div class="itemImageBlock"><img src="img/g7.png" alt=""></div>
-                        <div class="itemTextBlock">
-                            <p class="catItemText">mango people t-shirt</p>
-                            <p class="catItemPrice">$52.00</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item">
-                        <div class="itemImageBlock"><img src="img/g8.png" alt=""></div>
-                        <div class="itemTextBlock">
-                            <p class="catItemText">mango people t-shirt</p>
-                            <p class="catItemPrice">$52.00</p>
-                        </div>
-                    </div>
-                </li>
             </ul>
 
 
@@ -334,7 +346,8 @@
                 <div class="subscribeRight col-md-6 col-xs-6 col-sm-6">
                     <p class="subscribeRightText1">subscribe</p>
                     <p class="subscribeRightText2">for our newletter and promotion</p>
-                    <input type="email" placeholder="Enter Your Email"><button name="subscribe">Subscribe</button>
+                    <input type="email" placeholder="Enter Your Email">
+                    <button name="subscribe">Subscribe</button>
                 </div>
             </div>
 
@@ -361,8 +374,6 @@
 
                 </div>
                 <nav class="col-lg-5 col-lg-offset-2 col-md-6 col-xs-6 col-sm-6">
-
-
 
 
                     <div class="col-md-4 col-xs-4 col-sm-4 fCompany">

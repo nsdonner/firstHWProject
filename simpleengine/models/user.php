@@ -88,8 +88,9 @@ class User implements DbModelInterface
 
 
             } else {
-                $username[0] = 'Хорошая попытка, но ты ввел неправильные данные.';
+                $username[0] = 'Log In';
                 $username[1] = 0;
+                $username['authError'] = 1;
             }
         }
 

@@ -376,6 +376,10 @@ body {
 .cartGoods .goodsList .goodsItem .itemDesc {
   padding-top: 4%;
 }
+.loginBtnDiv {
+  clear: both;
+  float: right !important;
+}
 div[class*='col-'] {
   /*padding-left: 0;
   padding-right: 0;*/
@@ -891,7 +895,7 @@ main {
   padding-top: 13px;
   list-style: none;
   /* padding-right: 0;
-      padding-left: 0;*/
+       padding-left: 0;*/
   text-align: center;
 }
 .cont .upperMenu ul li {
@@ -1349,7 +1353,7 @@ main {
   height: 46px;
   border: none;
   /* display: block;
-        float: left;*/
+         float: left;*/
   display: inline;
   border-radius: 0 50px 50px 0;
   font-family: Lato;
@@ -1377,7 +1381,7 @@ main {
   float: right;
   /*margin-right: 15%;*/
   /* padding-left: 0;
-      padding-right: 0;*/
+       padding-right: 0;*/
 }
 .cont .footerMenu ul {
   list-style: none;
@@ -1409,9 +1413,9 @@ main {
 }
 .cont .footerMenu .fBrand {
   /*     width: 427px;
-      float: left;
-      margin-right: 63px;
-      !* margin-left: 229px;*!*/
+           float: left;
+           margin-right: 63px;
+           !* margin-left: 229px;*!*/
   /*margin-left: 15%;*/
 }
 .cont .footerMenu .fBrand .brandtext {
@@ -1489,6 +1493,7 @@ main {
   /* Approximation due to font substitution */
   font-weight: 400;
   padding-bottom: 0;
+  padding-top: 7px;
 }
 .cont .copyright ul li:hover {
   background: #f16d7f;
